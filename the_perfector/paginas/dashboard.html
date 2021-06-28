@@ -1,0 +1,269 @@
+<!-- <?php
+    session_start();
+    include("includes/dbh.inc.php");
+    $nome= strval($_SESSION["useruid"]);
+    
+    // $sql="SELECT * FROM pedido WHERE  pedidoUser = '$nome';";
+    $sql="SELECT * FROM orcamento,pedido WHERE (idOr LIKE Peid) AND pedidoUser = '$nome' AND status = 'Recebido';";
+
+    $stmt=mysqli_stmt_init($conn);
+    $con= mysqli_query($conn,$sql) or die(mysqli_error($conn));
+    $_SESSION['telefone']=$ph=5511910206964;
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximun-scale=1,user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/icon" href="../imagens/logo-icon.svg">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/foote.css">
+    <link rel="stylesheet" href="../styles/styleme.css">
+
+</head>
+
+<body>
+
+    <script>
+        function showPage(page) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none'
+            })
+            document.querySelector(`#${page}`).style.display = 'block';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            //evento que faz esperar todo conteudo da página carregar
+            document.querySelectorAll("a").forEach(a => {
+
+                //Seleciona a query button e faz um loop	
+                a.onclick = function () {
+                    // esse loop vai mostrar ou desaparecer de acordo com o borao selecionado
+                    showPage(this.dataset.page);
+                }
+            })
+        })
+
+
+
+    </script>
+    <style>
+        li {
+            list-style-type: none;
+
+        }
+
+        .menu {
+            top: -228px;
+            text-align: right;
+        }
+
+        footer {
+            bottom: -500px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        #meio {
+            height: 230px;
+        }
+    </style>
+    
+    <div class="menu menu--closed">
+
+        <div class="button">
+            <span> </span>
+            <span> </span>
+            <span> </span>
+        </div>
+            
+            <div class="tools tools--hidden">
+                <!-- Pencil Filled icon by Icons8 -->
+                <a href="dashboardEmpresa.html">
+                <p class="icon pen" width="32" height="32" >Empresa</p>
+            
+                </a>
+
+                <!-- Trash icon by Icons8 -->
+                <a href="profile.html">
+                    <p class="icon trash" width="32" height="32">Perfil</p>
+                </a>
+                <a href="reclameAqui.html">
+                    <p class="icon trash" width="32" height="32">Reclame</p>
+                </a>
+                    
+                <!-- Invisible icon by Icons8 -->
+                <a href="../paginas/index.html">
+                    <p class="icon hidden" width="32" height="32" >Sair</p></a>
+
+                <!-- About icon by Icons8 -->
+                <a href="#">
+                    <p class="icon help" width="32" height="32" ></p> </a>
+           
+            <!-- Share icon by Icons8 -->
+            <a href="#">
+            <img class="icon share" width="32" height="32" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCA
+                YAAACpSkzOAAABL0lEQVRIS7WW8Q2BMRBHfyZgFBtgAxsYgQ2wARvYQGzABkZhAvKSNukn2t5VNfnCH5++u+u9npH6raWktaR52PIqaS+JT4
+                06cU6SVpm9gO16gMjkXAl40QNEaWYV0K0H6GUp/y+gSTj83b9AEbCRxHfLungyagHEIAbNkHrwCP1/lHQPJSpl8JQ0trR3yQOguRIBOIRnKo
+                lgEBboDX9SYS0efAabAgikujgjiwdxIzcg/hCQyYNwb1EmUwafKXpA1JvmaAZ5SgeErNxAMmppBjcwCkuUzJJvq+RICqS94zxCh+w8ov85B2
+                5iNudFAkBY/ODJSVlyzT2PiLIGzPnUNI9agD/NowjcVq+FTv8ZTMJ7xkQucIuHrnmUA1k8bGqGb8CSh+72rp156iHvDubRGxwIS/cx30uGAA
+                AAAElFTkSuQmCC">
+            </a>
+
+            </div>
+
+    </div>
+
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="../scripts/script.js"></script>
+
+    <div id="topdash" style="display:block;">
+        <ul>
+            <li><a href="display.html" style="text-decoration:none">
+                    <h6><strong>Explorar</strong> </h6>
+                </a></li>
+            <div id='menu'>
+                <!-- <?php include_once "includes/menu.php";?>    -->
+            </div>
+
+        </ul>
+
+        <ul id="subm">
+
+            <li><a href='dashboardEmpresa.php'>Empresa</a></li><br>"
+            <li><a href='profile.php'>Perfil</a></li><br>
+            <li><a href='includes/logout.inc.php'>Sair</a></li><br>
+
+
+
+            <!--<li><img id="prof" src="../imagens/usuario.png"></li>-->
+
+        </ul>
+
+        <div id="primary">
+            <h6 id='bvd'>Bem Vindo(a)</h6>
+
+
+            <br>
+        </div>
+        <div style="position:absolute; left:380px; margin-top:50px;">
+            <ul>
+                <li id="re"><a href="#" style="text-decoration:none" data-page="page1">
+                        <p> <strong>Recebidos</strong></p>
+                    </a></li>
+                <li id="ap"><a href="#" style="text-decoration:none" data-page="page2">
+                        <p> <strong>Aprovados</strong></p>
+                    </a></li>
+                <li id="fi"><a href="#" style="text-decoration:none">
+                        <p><strong> Finalizado</strong></p>
+                    </a></li>
+
+            </ul>
+        </div>
+        <a href='https://web.whatsapp.com/send;' target='blank'><img height='60px' id='chat'
+                src='../imagens/cha.png'></a>
+        <a href="pedido.html"><img id="cpe" src="../imagens/cpedido.png"></a>
+        <br><br>
+
+        <section id="page1">
+            <br> <br>
+
+            <h6 style='margin-left:585px; font-size:20px;' id='tituloOrcamento'>Orçamentos recebidos</h6>
+            <div id='meio' style='color:white;'>
+                <tr>
+                    <td>Enviado por:Fulaninho</td> <br>
+                    <td>Valor:$800.00</td><br>
+                    <td style='position:relative; margin-bottom:10px;'>Descrição:Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                    <a style='position:absolute; top:25px;left:175px;' href='detalhes.html'>
+
+                        <img src='../imagens/Vector.png' style='position:absolute; left:0px; top:80px;' id='imgVetor'>
+                        <img style='position:absolute; left:60px; top:130px; height: 50px;'
+                            src='../imagens/ant-design_plus-circle-outlined.png' id='plusImg'>
+                    </a>
+            </div>
+
+            </tr><br>
+
+
+
+
+
+
+
+        </section>
+
+        <section id="page2" style="display:none;">
+            <!-- Finalizados -->
+            <div  id='meio2' style='color:white;'><tr ><td >Enviado por:Fulano</td> <br>
+                <td >Valor:$700.00</td> <br>
+                <a href='https://web.whatsapp.com/send?phone= $_SESSION[telefone];' target='blank'>Chat</a>
+                
+                <img src='../imagens/Vectorf.png' style='position:absolute; left: 155px; top:65px;'>
+                <img style='position:absolute; left: 260px; top:120px; height: 50px;' src='../imagens/ant-design_plus-circle-outlined.png'>
+           
+                </div> </tr><br>
+
+    </div>
+
+    <footer>
+
+
+        <h4><a href="#cate">Serviços</a></h4>
+        <ul>
+            <div class="container">
+
+                <a href="../paginas/display.php">
+                    <li>Assistencia Técnica</li>
+                </a> <br>
+                <a href="../paginas/display.php">
+                    <li>Serviços Domésticos</li>
+                </a> <br>
+                <a href="../paginas/display.php">
+                    <li>Reformas</li>
+                </a>
+                <div style="margin-left:20%; position:relative; top: -52px;">
+
+
+
+                    <div id="listas">
+                        <a href="../paginas/display.php">
+                            <li>Design e Tecnologia</li>
+                        </a> <br>
+                        <a href="../paginas/display.php">
+                            <li>Saúde</li>
+                        </a> <br>
+
+                        <a href="../paginas/display.php">
+                            <li>Beleza e Moda</li>
+                        </a> <br>
+                        <a href="../paginas/display.php">
+                            <li>Educação</li>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- <div style="position:relative; top: -45px; left: -327px;">  
+            <a href="../paginas/display.php"> <li>Eventos</li></a>
+             
+          </div> -->
+                <div style="position:relative; left:200px; top:-130px;">
+                    <a href="../paginas/reclameAqui.php">
+                        <li id='listaReclame'>Reclame Aqui</li>
+                    </a>
+                </div>
+            </div>
+
+        </ul>
+
+    </footer>
+
+</body>
+
+</html>

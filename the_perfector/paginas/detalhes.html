@@ -1,0 +1,48 @@
+<!-- <?php
+    include('includes/dbh.inc.php');
+    if(isset($_GET['codigo'])){
+    $codigo= $_GET['codigo'];
+    $sql="SELECT * FROM pedido,orcamento WHERE Peid= '$codigo' AND idOR = '$codigo';";
+    $stmt= mysqli_stmt_init($conn);
+    $con= mysqli_query($conn,$sql) or die(mysqli_error($conn));
+    require_once "includes/functions.inc.php";
+    session_start();
+    $_SESSION['co']=$codigo;
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagens/logo-icon.svg" type="image/x-icon"> 
+    <link rel="stylesheet" href="../styles/detalh.css"> 
+    <title>Detalhes</title>
+</head>
+
+<body>
+ 
+
+        <h3 style="
+    position: relative;
+    top: 100px;
+    left: 550px;"
+    >Orçamento do pedido</h3>
+      <div>
+       <h5>Enviador Por:Fulano</h5>
+       <h5>Valor Proposto:$800.00</h5>
+       <h5>Titulo: Criar Site</h5>
+       <h5>Categoria:Desenvolvimento web</h5>
+       <img  src='../imagens/Vector (1).png' 
+                  style='position:absolute; 
+                  height: 200px; 
+                  left:335px; top:60px; '>
+              
+      </div>
+
+    <a href="includes/../dashboard.html" style="text-decoration:none;"> <button class="rejeitar">Rejeitar</button> </a> 
+     <a href="includes/../dashboard.html" style="text-decoration:none;"><button class="aprovar">Aprovar</button></a>   
+    
+</body>
+</html>
